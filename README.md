@@ -1,16 +1,29 @@
 # ShopBridgeRepo
 
-**DataBase Setup**
+**How to use:**
 
-1. Retore Database backup file 'Shop_Bridge_db.bak' which placed in repo root path
+   Visual Studio 2019 and the .NET Core SDK.
+
+**Technologies:**
+  ASP.NET WebApi Core
+  Entity Framework Core
+  Swagger (via Swashbuckle)
+  NUnit
+  
+  
+**Setup and Run application**
+
+1. Retore Database backup file 'Shop_Bridge_db.bak' which is placed in repo root path
 
 2. Set Database Name As : Shop_Bridge_db
 
-3. Set your database connection string in LaunchSettings.json file 
+3. Modify the connection string in appsettings.json to reflect your database environment
  
-    e.g.  "ConnectionStrings:ShopBridgeDb": "Server=DBServerName;Database=Shop_Bridge_db;Trusted_Connection=True;"
+    e.g.  "ShopBridgeDb": "Server=DBServerName;Database=Shop_Bridge_db;Trusted_Connection=True;"
+    
+4. Build and run the ShopBridgeApi project
 
-**Use Swagger**
+5. Open /swagger url
 
-    I have set swagger inside project. Handle Api actoins using swagger UI.
+
 
