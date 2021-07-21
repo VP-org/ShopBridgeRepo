@@ -1,4 +1,4 @@
-﻿using Logic.Exceptions;
+using Logic.Exceptions;
 using Logic.Interfaces;
 using Logic.Models;
 using Microsoft.AspNetCore.Http;
@@ -19,15 +19,15 @@ namespace ShopBridgeApi.Controllers
             _lazyProductProvider = productProvider;
         }
 
-        [HttpGet("[action]")]
-        public async Task<GetProductsResponse> GetProducts()
+        [HttpPost("[action]")]
+        public async Task<GetProductsResponse> GetProducts(GetProductsRequest request)
         {
             var response = new GetProductsResponse();
             response.Message = "";
 
             try
             {
-                var result = await _productProvider.GetProducts();
+                var result = await _productProvider.GetProducts(request.pageNumber,request.pageSize);
 
                 response.productModels = result;
                 response.Success = true;
@@ -144,6 +144,12 @@ namespace ShopBridgeApi.Controllers
     public class GetProductsResponse : BaseResponse
     {
         public List<ProductModel> productModels { get; set; }
+    }
+
+    public class GetProductsRequest 
+    {
+        public int pageNumber { get; set; }
+        public int pageSize { get; set; }
     }
 
     public class LoadProductResponse : BaseResponse
