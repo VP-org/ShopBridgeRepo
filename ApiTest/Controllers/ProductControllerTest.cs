@@ -49,8 +49,7 @@ namespace ApiTest.Controllers
         [Test]
         public async Task GetProductsValid()
         {
-            GetProductsRequest data = new GetProductsRequest() { pageNumber = 2, pageSize = 2 };
-            GetProductsResponse response = await _controller.GetProducts(data);
+            GetProductsResponse response = await _controller.GetProducts(1,10);
             Assert.IsTrue(response.Success);
             Assert.AreEqual(_products.Count, response.productModels.Count);
         }
