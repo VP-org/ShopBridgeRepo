@@ -19,15 +19,15 @@ namespace ShopBridgeApi.Controllers
             _lazyProductProvider = productProvider;
         }
 
-        [HttpPost("[action]")]
-        public async Task<GetProductsResponse> GetProducts(GetProductsRequest request)
+        [HttpGet("[action]")]
+        public async Task<GetProductsResponse> GetProducts([FromQuery] int pageNumber=1,[FromQuery] int pageSize=1000)
         {
             var response = new GetProductsResponse();
             response.Message = "";
 
             try
             {
-                var result = await _productProvider.GetProducts(request.pageNumber,request.pageSize);
+                var result = await _productProvider.GetProducts(pageNumber,pageSize);
 
                 response.productModels = result;
                 response.Success = true;
@@ -144,12 +144,6 @@ namespace ShopBridgeApi.Controllers
     public class GetProductsResponse : BaseResponse
     {
         public List<ProductModel> productModels { get; set; }
-    }
-
-    public class GetProductsRequest 
-    {
-        public int pageNumber { get; set; }
-        public int pageSize { get; set; }
     }
 
     public class LoadProductResponse : BaseResponse
