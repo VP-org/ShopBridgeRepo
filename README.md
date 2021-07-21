@@ -1,14 +1,18 @@
 # ShopBridgeRepo
 
-**How to use:**
+**Installation:**
 
-   Visual Studio 2019 and the .NET Core SDK.
+    Visual Studio 2019 and the .NET Core SDK.
 
 **Technologies:**
-  ASP.NET WebApi Core
-  Entity Framework Core
-  Swagger (via Swashbuckle)
-  NUnit
+
+    ASP.NET WebApi Core
+  
+    Entity Framework Core
+  
+    Swagger (via Swashbuckle)
+  
+    NUnit
   
   
 **Setup and Run application**
