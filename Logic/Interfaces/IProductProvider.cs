@@ -8,7 +8,7 @@ namespace Logic.Interfaces
 {
     public interface IProductProvider
     {
-        Task<List<ProductModel>> GetProducts();
+        Task<List<ProductModel>> GetProducts(int pageNumber,int pageSize);
         Task<ProductModel> LoadProduct(int productId);
         Task SaveProduct(ProductModel model);
         Task DeleteProduct(int productId);
